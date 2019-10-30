@@ -7,3 +7,11 @@ class FoodInMyCity::Foodplaces
             @address = address
             @rating = rating
             @link = link
+            @@all << self
+        end
+
+        def self.all
+            @@all
+        end
+end
+
