@@ -12,7 +12,7 @@ class FoodInMyCity::CLI
     #method that takes user input(a number) and returns that foodplce + its details
 
     #an exit method for when user is done 
-    #
+    #valid methods
 
 
 
