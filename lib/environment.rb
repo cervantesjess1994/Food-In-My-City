@@ -1,7 +1,7 @@
-require_relative "./FoodInMyCity/version"
-require_relative "./FoodInMyCity/cli"
-require_relative "./FoodInMyCity/api"
-require_relative "./FoodInMyCity/foodplaces"
+require_relative "FoodInMyCity/version"
+require_relative "FoodInMyCity/cli"
+require_relative "FoodInMyCity/api"
+
 require "pry"
 require "httparty"
 
