@@ -1,9 +1,6 @@
 class FoodInMyCity::CLI
     def call
         FoodInMyCity::API.new.fetch
-        FoodInMyCity::Restaurants.all.each do |r|
-            puts r.name 
-        end
     end
 end
 
