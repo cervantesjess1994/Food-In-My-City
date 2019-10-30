@@ -6,6 +6,24 @@ class FoodInMyCity::CLI
             puts fp.name
         end
     end
+
+
+
+
+
+    def exit
+        if gets.chomp == "exit"
+            puts "Thank you, come again!"
+        elseif gets.chomp == back
+            #send back to program
+            #run program
+        else
+           puts "Sorry, wrong input. Please try again"
+        end
+    end
+
+
+
 end
 
     #something to display list of choices according to their city or location of preference
