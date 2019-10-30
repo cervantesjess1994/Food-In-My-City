@@ -9,6 +9,8 @@ class FoodInMyCity::API
             address = fp["location"]["display_address"]
             rating = fp["rating"]
             link = fp["url"]
-         end
-        
+            FoodInMyCity::Foodplaces.new(name, addrress, rating, link)
+            end
+        end
+    end 
 end

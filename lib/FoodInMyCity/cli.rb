@@ -1,6 +1,10 @@
 class FoodInMyCity::CLI
+    
     def call
         FoodInMyCity::API.new.fetch
+        FoodInMyCity::Foodplaces.all.each do |fp|
+            puts fp.name
+        end
     end
 end
 
