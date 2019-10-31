@@ -4,14 +4,15 @@ class FoodInMyCity::API
         url = "https://api.yelp.com/v3/businesses/search?term=restaurant&location=paloalto&limit=20"
         response = HTTParty.get(url, headers: {'Authorization' => "Bearer #{key}"})
         response.parsed_response
-        response["id"].each do |fp|
+
+        response["businesses"].each do |fp|
             name = fp["name"]
             address = fp["location"]["display_address"]
             rating = fp["rating"]
             link = fp["url"]
-            FoodInMyCity::Foodplaces.new(name, addrress, rating, link)
-            end
+            FoodInMyCity::Foodplaces.new(name, address, rating, link)
+            
         end
-    end    
-    
-end
+    end 
+end   
+

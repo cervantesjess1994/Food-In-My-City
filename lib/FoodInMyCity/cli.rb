@@ -3,6 +3,7 @@ class FoodInMyCity::CLI
     def call
         FoodInMyCity::API.new.fetch
         puts "Welcome to Palo Alto, home of El Palo Alto!"
+        begin
     end
 
     def begin
@@ -17,7 +18,7 @@ class FoodInMyCity::CLI
     end
 
     def display_info(input)
-        fp = @foodplace[input]
+        fp = @foodplace[input-1]
         puts <<~HEREDOC
             Address: #{fp["location"]["display_address"]}
             Rating: #{fp["rating"]}
@@ -35,22 +36,17 @@ class FoodInMyCity::CLI
             exit
         end
         input.to_i
-        input.between?(0,array.length)
+        input.between?(1,array.length)
     end
-
-
-
 
     def exit
         if input == "done"
             puts "Thank you, come again!"
-        elsif input == "no"
-            #run program again
+        elsif 
+            input == "no"
+            begin
         else
            puts "Sorry, wrong input. Please try again"
         end
     end
-
-
-
 end
