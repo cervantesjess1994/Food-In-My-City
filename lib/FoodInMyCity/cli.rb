@@ -8,6 +8,7 @@ class FoodInMyCity::CLI
 
     def run
         display_fp_names
+        get_info
         display_info
         exit
     end
@@ -37,11 +38,7 @@ class FoodInMyCity::CLI
             Rating: #{fp["rating"]}
             Link: #{fp["url"]}
             HEREDOC
-    end
-
-
-    def input
-        input = gets.chomp
+        exit
     end
 
     def valid?(input,array)
@@ -53,13 +50,14 @@ class FoodInMyCity::CLI
     end
 
     def exit
-        if input == "done"
-            puts "Thank you, come again!"
-        elsif 
-            input == "no"
-            run
-        else
-           puts "Sorry, wrong input. Please try again"
-        end
+        puts "All done? Enter 'done' to exit"
+            if gets.chomp == "done"
+                puts "Thank you, come again!"
+            elsif 
+                gets.chomp == "no"
+                run
+            else
+                puts "Sorry, wrong input. Please try again"
+            end
     end
 end
