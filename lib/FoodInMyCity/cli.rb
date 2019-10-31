@@ -8,10 +8,12 @@ class FoodInMyCity::CLI
     end
 
 
-    def valid?(input)
+    def valid?(input,array)
         if input == "done"
             exit
-        
+        end
+        input.to_i
+        input.between?(1-20)
 
     end
 
