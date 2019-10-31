@@ -6,17 +6,23 @@ class FoodInMyCity::CLI
     end
 
     def begin
-        #display food names method
-        #show info method
+        display_fp_names
+        display_info
     end
 
     def display_fp_names
-        @foodplace =FoodInMyCity::Foodplaces.get_names.each.with_index do
+        @foodplace = FoodInMyCity::Foodplaces.get_names.each.with_index do
             puts " #{i+1}. #{fp}"
         end
     end
 
-    def show_info
+    def display_info(input)
+        fp = @foodplace[input]
+        puts <<~HEREDOC
+            Address: #{fp["location"]["display_address"]}
+            Rating: #{fp["rating"]}
+            Link: #{fp["url"]}
+            HEREDOC
     end
 
 
