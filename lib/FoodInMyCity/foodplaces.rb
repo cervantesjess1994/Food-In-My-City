@@ -13,5 +13,16 @@ class FoodInMyCity::Foodplaces
         def self.all
             @@all
         end
+
+        def self.get_names
+            self.all.collect{|fp| fp.name}.uniq
+        end
+        
+
+
+
+
+
+
 end
 

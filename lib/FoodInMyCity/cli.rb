@@ -26,7 +26,7 @@ class FoodInMyCity::CLI
 
 end
 
-    #something to display list of choices according to their city or location of preference
+    #something to display list of choices according to city Palo Alto
     #if they press a number ---> food place name
     #after choosing foodplace display foodplace info
     #method to return the foodplace details
