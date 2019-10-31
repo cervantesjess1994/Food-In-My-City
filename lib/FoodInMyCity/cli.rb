@@ -8,10 +8,13 @@ class FoodInMyCity::CLI
     end
 
 
-    def valid?
+    def valid?(input)
+        if input == "done"
+            exit
+        
 
     end
-    
+
 
 
     def exit
