@@ -3,13 +3,22 @@ class FoodInMyCity::CLI
     def call
         FoodInMyCity::API.new.fetch
         puts "Welcome to Palo Alto, home of El Palo Alto!"
-        #display food places
-        #return the info of choice
     end
 
     def begin
-
+        #display food names method
+        #show info method
     end
+
+    def display_fp_names
+        @foodplace =FoodInMyCity::Foodplaces.get_names.each.with_index do
+            puts " #{i+1}. #{fp}"
+        end
+    end
+
+    def show_info
+    end
+
 
     def input
         input == get.chomp
