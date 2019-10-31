@@ -7,24 +7,26 @@ class FoodInMyCity::CLI
         end
     end
 
+    def input
+        input == get.chomp
+    end
 
     def valid?(input,array)
         if input == "done"
             exit
         end
         input.to_i
-        input.between?(1-20)
-
+        input.between?(0,array.length)
     end
 
 
 
+
     def exit
-        if gets.chomp == "exit"
+        if input == "done"
             puts "Thank you, come again!"
-        elseif gets.chomp == back
-            #send back to program
-            #run program
+        elsif input == "no"
+            #run program again
         else
            puts "Sorry, wrong input. Please try again"
         end
