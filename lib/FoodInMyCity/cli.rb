@@ -8,7 +8,10 @@ class FoodInMyCity::CLI
     end
 
 
+    def valid?
 
+    end
+    
 
 
     def exit

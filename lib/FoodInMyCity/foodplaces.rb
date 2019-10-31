@@ -22,12 +22,5 @@ class FoodInMyCity::Foodplaces
             name = self.get_names
             fp = self.all.select {|fp| fp.name.include?(name)}
         end
-        
-
-
-
-
-
-
 end
 
