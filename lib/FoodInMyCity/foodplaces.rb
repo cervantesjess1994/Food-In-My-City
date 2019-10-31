@@ -1,8 +1,9 @@
 class FoodInMyCity::Foodplaces
         attr_accessor :name, :address, :rating, :link
+       
         @@all = []
 
-        def initialize(name, address, rating, link)
+        def initialize(fp_hash)
             @name = name
             @address = address
             @rating = rating
