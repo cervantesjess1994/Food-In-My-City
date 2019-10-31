@@ -15,13 +15,20 @@ class FoodInMyCity::CLI
     def display_fp_names
         @foodplace = FoodInMyCity::Foodplaces.get_names.each.with_index do
             puts "#{index + 1}. #{fp}"
-            #get details then dispay info method 
-            puts "Enter corresponding number to the food place you'd like to visit."
-            num = gets.chomp
-                if valid?(num, @foodplace)
-                    
+    end
+
+    def get_info
+        #get details then dispay info method 
+        puts "Enter the number corresponding to the food place you'd like to visit."
+        num = gets.chomp
+            if valid?(num, @foodplace)
+                display_info(num)
+            else
+                get_info
+            end
         end
     end
+
 
     def display_info(input)
         fp = @foodplace[input-1] #-1 snce input would be index+1
