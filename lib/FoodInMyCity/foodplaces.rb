@@ -4,10 +4,10 @@ class FoodInMyCity::Foodplaces
         @@all = []
 
         def initialize(fp_hash)
-            @name = name
-            @address = address
-            @rating = rating
-            @link = link
+            @name = fp_hash[:name]
+            @address = fp_hash[:address]
+            @rating = fp_hash[:rating]
+            @link = fp_hash[:link]
             @@all << self
         end
 
