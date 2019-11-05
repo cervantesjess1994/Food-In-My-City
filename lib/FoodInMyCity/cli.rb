@@ -1,21 +1,20 @@
 class FoodInMyCity::CLI
     
     def call
-        FoodInMyCity::API.fetch
-        puts "Welcome to Palo Alto, home of El Palo Alto!"
-        run
+        FoodInMyCity::API.new.fetch
+            run
     end
 
     def run
+        puts "Welcome to Palo Alto, home of El Palo Alto!"
         display_fp_names
         get_info
-        display_info
-        exit
     end
 
     def display_fp_names
-        @foodplace = FoodInMyCity::Foodplaces.get_names.each.with_index do
-            puts "#{index + 1}. #{fp}"
+        @foodplace = FoodInMyCity::Foodplaces.get_names.each.with_index do |fp,i|
+            puts "#{i+ 1}. #{fp}"
+        end
     end
 
     def get_info
@@ -23,41 +22,41 @@ class FoodInMyCity::CLI
         puts "Enter the number corresponding to the food place you'd like to visit."
         num = gets.chomp
             if valid?(num, @foodplace)
-                display_info(num)
+                display_info(num.to_i)
             else
                 get_info
             end
         end
-    end
 
 
     def display_info(input)
-        fp = @foodplace[input-1] #-1 snce input would be index+1
-         puts <<~HEREDOC
-            Address: #{fp["location"]["display_address"]}
-            Rating: #{fp["rating"]}
-            Link: #{fp["url"]}
+        fp = FoodInMyCity::Foodplaces.all[input-1] #-1 snce input would be index+1
+        puts <<~HEREDOC
+            Address: #{fp.address}
+            Rating: #{fp.rating}
+            Link: #{fp.link}
             HEREDOC
-        exit
+        finished
     end
 
     def valid?(input,array)
         if input == "done"
-            exit
+            finished
         end
-        input.to_i
-        input.between?(1,array.length) 
+        input.to_i.between?(1,array.length) 
     end
 
-    def exit
+    def finished
         puts "All done? Enter 'done' to exit"
-            if gets.chomp == "done"
+        input = gets.chomp
+            if input == "done"
                 puts "Thank you, come again!"
-            elsif 
-                gets.chomp == "no"
+                exit
+            elsif input == "no"
                 run
             else
                 puts "Sorry, wrong input. Please try again"
+                finished
             end
     end
 end

@@ -8,7 +8,7 @@ class FoodInMyCity::API
         response["businesses"].each do |fp|
             
             name = fp["name"]
-            address = fp["location"]["display_address"]
+            address = fp["location"]["display_address"].join(" ")
             rating = fp["rating"]
             link = fp["url"]            
                 
@@ -17,13 +17,13 @@ class FoodInMyCity::API
 
             fp_hash ={
                 :name => name, 
-                :address => address
-                :rating => rating
+                :address => address,
+                :rating => rating,
                 :link => link
             }
             
             FoodInMyCity::Foodplaces.new(fp_hash)
         end
-    end 
-end   
+    end
+end
 
